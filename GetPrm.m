@@ -1,0 +1,44 @@
+function prm = GetPrm(scenario)
+prm = struct();
+switch scenario
+    case 'EntranceHall'
+        prm.valid = 1;
+        prm.muRxThetaLOS = 90;     prm.muTxPhiLOS = 0;      prm.muTxThetaLOS = 90; %Laplacian mean in degrees
+        prm.muRxThetaNLOS = 90;    prm.muTxPhiNLOS = 0;     prm.muTxThetaNLOS = 90; %Laplacian mean in degrees
+        prm.bRxThetaLOS = 1.1;     prm.bTxPhiLOS = 14.3;    prm.bTxThetaLOS = 2.0;  %Laplacian standard deviation in degrees
+        prm.bRxThetaNLOS = 4.1;    prm.bTxPhiNLOS = 53.6;   prm.bTxThetaNLOS = 8.6; %Laplacian standard deviation in degrees
+        prm.sRxDistLOS = 10.7;     prm.sRxDistNLOS = 13.1;  prm.sTxDistLOS = 7.4;   prm.sTxDistNLOS = 8.5; % Rayleigh scale parameter of antenna to scattering point distance distribution
+        prm.dataDir = 'data_030123_double_directional_paths\RT_TUAS2_020123.mat';
+        prm.InitText = 'loading 140 GHz measured paths for entrance hall.';
+    case 'Suburban'
+        prm.valid = 1;
+        prm.muRxThetaLOS = 90;     prm.muTxPhiLOS = 0;      prm.muTxThetaLOS = 90; %Laplacian mean in degrees
+        prm.muRxThetaNLOS = 90;    prm.muTxPhiNLOS = -10;     prm.muTxThetaNLOS = 90; %Laplacian mean in degrees
+        prm.bRxThetaLOS = 0.2;     prm.bTxPhiLOS = 2.1;    prm.bTxThetaLOS = 0.3;  %Laplacian standard deviation in degrees
+        prm.bRxThetaNLOS = 0.6;    prm.bTxPhiNLOS = 16.1;   prm.bTxThetaNLOS = 2.2; %Laplacian standard deviation in degrees
+        prm.sRxDistLOS = 29.1;     prm.sRxDistNLOS = 39.5;  prm.sTxDistLOS = 24;   prm.sTxDistNLOS = 25.1; % Rayleigh scale parameter of antenna to scattering point distance distribution
+        prm.dataDir = 'data_030123_double_directional_paths\RT_Campus_020123.mat';
+        prm.InitText = 'loading 140 GHz measured paths for suburban.';
+    case 'Residential'
+        prm.valid = 1;
+        prm.muRxThetaLOS = 90;     prm.muTxPhiLOS = 0;      prm.muTxThetaLOS = 90; %Laplacian mean in degrees
+        prm.muRxThetaNLOS = 90;    prm.muTxPhiNLOS = 0;     prm.muTxThetaNLOS = 95; %Laplacian mean in degrees
+        prm.bRxThetaLOS = 0.9;     prm.bTxPhiLOS = 6.7;    prm.bTxThetaLOS = 0.7;  %Laplacian standard deviation in degrees
+        prm.bRxThetaNLOS = 2.1;    prm.bTxPhiNLOS = 39.2;   prm.bTxThetaNLOS = 3.2; %Laplacian standard deviation in degrees
+        prm.sRxDistLOS = 33.8;     prm.sRxDistNLOS = 40.5;  prm.sTxDistLOS = 24.7;   prm.sTxDistNLOS = 18.2; % Rayleigh scale parameter of antenna to scattering point distance distribution
+        prm.dataDir = 'data_030123_double_directional_paths\RT_Residential_020123.mat';
+        prm.InitText = 'loading 140 GHz measured paths for residential.';
+    case 'CityCenter'
+        prm.valid = 1;
+        prm.muRxThetaLOS = 90;     prm.muTxPhiLOS = 0;      prm.muTxThetaLOS = 90; %Laplacian mean in degrees
+        prm.muRxThetaNLOS = 90;    prm.muTxPhiNLOS = 0;     prm.muTxThetaNLOS = 90; %Laplacian mean in degrees
+        prm.bRxThetaLOS = 0.9;     prm.bTxPhiLOS = 7.7;    prm.bTxThetaLOS = 1.1;  %Laplacian standard deviation in degrees
+        prm.bRxThetaNLOS = 3.7;    prm.bTxPhiNLOS = 20.5;   prm.bTxThetaNLOS = 3.0; %Laplacian standard deviation in degrees
+        prm.sRxDistLOS = 37.6;     prm.sRxDistNLOS = 37.9;  prm.sTxDistLOS = 28.9;   prm.sTxDistNLOS = 31.4; % Rayleigh scale parameter of antenna to scattering point distance distribution
+        prm.dataDir = 'data_030123_double_directional_paths\RT_City_020123.mat';
+        prm.InitText = 'loading 140 GHz measured paths for city center.';
+    otherwise
+        prm.valid = 0;
+end
+end
+
